@@ -19,6 +19,7 @@ import { useMediaQuery } from "@mui/material";
 import NextLink from "next/link";
 import scss from "./SideMenu.module.scss";
 import { signOut } from "next-auth/react";
+import zIndex from "@mui/material/styles/zIndex";
 
 const drawerWidth = 240;
 
@@ -74,76 +75,80 @@ const SideMenu = () => {
   };
 
   return (
-    <Drawer
-      variant="permanent"
-      anchor="left"
-      open={open}
-      sx={{
-        width: drawerWidth,
-        [`& .MuiDrawer-paper`]: {
-          flexShrink: 0,
-          whiteSpace: "nowrap",
-          left: 0,
-          boxSizing: "border-box",
-          top: mobileCheck ? 64 : 57,
-          ...(open && {
-            ...openedMixin(theme),
-            "& .MuiDrawer-paper": openedMixin(theme),
-          }),
-          ...(!open && {
-            ...closedMixin(theme),
-            "& .MuiDrawer-paper": closedMixin(theme),
-          }),
-        },
-      }}
-    >
-      <div className={scss.drawerHeader}>
-        <IconButton onClick={handleDrawerToggle}>
-          {!open ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-        </IconButton>
-      </div>
-      <Divider />
+    <div className={scss.sidebar}>
+      <Drawer
+        variant="permanent"
+        anchor="left"
+        open={open}
+        sx={{
+          width: drawerWidth,
 
-      <Divider />
-      <List>
-        {menuListTranslations.map((text, index) => (
-          <ListItem key={text} disablePadding sx={{ display: "block" }}>
-            <NextLink
-              className={scss.link}
-              href={`/dashboard/${menuRouteList[index]}`}
-            >
-              <ListItemButton
-                onClick={() => handleListItemButtonClick(text)}
-                title={text}
-                aria-label={text}
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
-                  px: 2.5,
-                }}
+          [`& .MuiDrawer-paper`]: {
+            flexShrink: 0,
+            whiteSpace: "nowrap",
+            left: 0,
+            boxSizing: "border-box",
+
+            top: mobileCheck ? 64 : 57,
+            ...(open && {
+              ...openedMixin(theme),
+              "& .MuiDrawer-paper": openedMixin(theme),
+            }),
+            ...(!open && {
+              ...closedMixin(theme),
+              "& .MuiDrawer-paper": closedMixin(theme),
+            }),
+          },
+        }}
+      >
+        <div className={scss.drawerHeader}>
+          <IconButton onClick={handleDrawerToggle}>
+            {!open ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+          </IconButton>
+        </div>
+        <Divider />
+
+        <Divider />
+        <List>
+          {menuListTranslations.map((text, index) => (
+            <ListItem key={text} disablePadding sx={{ display: "block" }}>
+              <NextLink
+                className={scss.link}
+                href={`/dashboard/${menuRouteList[index]}`}
               >
-                <ListItemIcon
+                <ListItemButton
+                  onClick={() => handleListItemButtonClick(text)}
+                  title={text}
+                  aria-label={text}
                   sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
+                    minHeight: 48,
+                    justifyContent: open ? "initial" : "center",
+                    px: 2.5,
                   }}
                 >
-                  {menuListIcons[index]}
-                </ListItemIcon>
-                <ListItemText
-                  primary={text}
-                  sx={{
-                    color: theme.palette.text.primary,
-                    opacity: open ? 1 : 0,
-                  }}
-                />
-              </ListItemButton>
-            </NextLink>
-          </ListItem>
-        ))}
-      </List>
-    </Drawer>
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : "auto",
+                      justifyContent: "center",
+                    }}
+                  >
+                    {menuListIcons[index]}
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={text}
+                    sx={{
+                      color: theme.palette.text.primary,
+                      opacity: open ? 1 : 0,
+                    }}
+                  />
+                </ListItemButton>
+              </NextLink>
+            </ListItem>
+          ))}
+        </List>
+      </Drawer>
+    </div>
   );
 };
 

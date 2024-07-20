@@ -13,12 +13,45 @@ export const lineChartData = {
   ],
 };
 
-export const doughnutChartData = {
-  labels: ["Red", "Blue", "Yellow"],
+export const doughnutChartData1 = {
+  labels: ["Sales", "Revenue", "Profit"],
   datasets: [
     {
       label: "Transaction Dataset",
       data: [300, 50, 100],
+      backgroundColor: ["rgb(255,137,168)", "rgb(178,3,106)", "rgb(165,7,42)"],
+      hoverOffset: 4,
+    },
+  ],
+};
+export const doughnutChartData2 = {
+  labels: ["Sales", "Revenue", "Profit"],
+  datasets: [
+    {
+      label: "Transaction Dataset",
+      data: [120, 348, 170],
+      backgroundColor: ["rgb(255,137,168)", "rgb(178,3,106)", "rgb(165,7,42)"],
+      hoverOffset: 4,
+    },
+  ],
+};
+export const doughnutChartData3 = {
+  labels: ["Sales", "Revenue", "Profit"],
+  datasets: [
+    {
+      label: "Transaction Dataset",
+      data: [105, 80, 70],
+      backgroundColor: ["rgb(255,137,168)", "rgb(178,3,106)", "rgb(165,7,42)"],
+      hoverOffset: 4,
+    },
+  ],
+};
+export const doughnutChartData4 = {
+  labels: ["Sales", "Revenue", "Profit"],
+  datasets: [
+    {
+      label: "Transaction Dataset",
+      data: [300, 500, 700],
       backgroundColor: ["rgb(255,137,168)", "rgb(178,3,106)", "rgb(165,7,42)"],
       hoverOffset: 4,
     },

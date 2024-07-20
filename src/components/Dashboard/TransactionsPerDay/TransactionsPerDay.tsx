@@ -19,7 +19,7 @@ const TransactionsPerDay = () => {
     <Grid container gap={2} className={scss.wrapper}>
       <Paper className={scss.transactions}>
         <div className={scss.chart}>
-          <Typography>TransActions per day</Typography>
+          <Typography>TransActions Per Day</Typography>
           <DataChart type={"line"} data={lineChartData} />
         </div>
         <div className={scss.cardWrapper}>
@@ -28,7 +28,7 @@ const TransactionsPerDay = () => {
               <Typography>Total Products</Typography>
             </div>
             <div className={scss.cardValue}>
-              <Typography>1.275</Typography>
+              <Typography>1.277 million</Typography>
               <Typography color={theme.palette.success.main} fontSize={14}>
                 428.7%
               </Typography>
@@ -36,7 +36,7 @@ const TransactionsPerDay = () => {
           </Card>
           <Card className={scss.card} variant={"outlined"}>
             <div className={scss.cardTitle}>
-              <Typography>Buy-to-detail</Typography>
+              <Typography>Buy-to-Detail</Typography>
             </div>
             <div className={scss.cardValue}>
               <Typography>4.40%</Typography>
@@ -50,9 +50,9 @@ const TransactionsPerDay = () => {
               <Typography>Refunds</Typography>
             </div>
             <div className={scss.cardValue}>
-              <Typography>0</Typography>
+              <Typography>3.9%</Typography>
               <Typography color={theme.palette.success.main} fontSize={14}>
-                0
+                384.9%
               </Typography>
             </div>
           </Card>

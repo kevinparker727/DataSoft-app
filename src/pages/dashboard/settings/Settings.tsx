@@ -41,7 +41,7 @@ const Settings = () => {
   return (
     <>
       <h1>Settings</h1>
-      <Box>
+      <Box sx={{ height: "56.3vh" }}>
         <Typography variant="h4" gutterBottom>
           Dashboard Features
         </Typography>

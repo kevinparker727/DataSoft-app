@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Layout from "@/components/Layout";
 import darkTheme from "@/theme/darkTheme";
@@ -46,6 +47,7 @@ const App = ({ Component, pageProps: { session, ...pageProps } }) => {
           <Layout>
             <Component {...pageProps} />
           </Layout>
+          <Footer />
         </SessionProvider>
       </ThemeProvider>
     </ColorModeContext.Provider>

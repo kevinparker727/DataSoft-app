@@ -40,7 +40,7 @@ const Header = (props: HeaderProps) => {
   };
 
   return (
-    <AppBar position="static" sx={{ marginBottom: "40px" }}>
+    <AppBar position="sticky" sx={{ marginBottom: "40px", top: "0" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
