@@ -19,7 +19,6 @@ import { useMediaQuery } from "@mui/material";
 import NextLink from "next/link";
 import scss from "./SideMenu.module.scss";
 import { signOut } from "next-auth/react";
-import zIndex from "@mui/material/styles/zIndex";
 
 const drawerWidth = 240;
 
@@ -52,12 +51,13 @@ const menuListTranslations = [
   "Settings",
   "Sign Out",
 ];
+
 const menuListIcons = [
-  <HomeIcon />,
-  <EqualizerIcon />,
-  <Person2Icon />,
-  <SettingsIcon />,
-  <ExitToAppIcon />,
+  <HomeIcon key="home" />,
+  <EqualizerIcon key="stats" />,
+  <Person2Icon key="profile" />,
+  <SettingsIcon key="settings" />,
+  <ExitToAppIcon key="logout" />,
 ];
 
 const SideMenu = () => {
@@ -115,6 +115,7 @@ const SideMenu = () => {
               <NextLink
                 className={scss.link}
                 href={`/dashboard/${menuRouteList[index]}`}
+                passHref
               >
                 <ListItemButton
                   onClick={() => handleListItemButtonClick(text)}
