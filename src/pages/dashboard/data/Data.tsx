@@ -3,6 +3,8 @@ import { DataGrid } from "@mui/x-data-grid";
 import LinearProgress from "@mui/material/LinearProgress";
 import { useDemoData } from "@mui/x-data-grid-generator";
 
+const CustomLoadingOverlay = (props: any) => <LinearProgress {...props} />;
+
 const Data = () => {
   const { data } = useDemoData({
     dataSet: "Commodity",
@@ -21,7 +23,7 @@ const Data = () => {
       <div style={{ height: "600px", width: "100%" }}>
         <DataGrid
           slots={{
-            loadingOverlay: LinearProgress,
+            loadingOverlay: CustomLoadingOverlay,
           }}
           loading={!data}
           {...data}
