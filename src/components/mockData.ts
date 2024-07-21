@@ -14,7 +14,7 @@ export const lineChartData = {
 };
 
 export const doughnutChartData1 = {
-  labels: ["Sales", "Revenue", "Profit"],
+  labels: ["Sales", "Rev.", "Profit"],
   datasets: [
     {
       label: "Transaction Dataset",
@@ -25,7 +25,7 @@ export const doughnutChartData1 = {
   ],
 };
 export const doughnutChartData2 = {
-  labels: ["Sales", "Revenue", "Profit"],
+  labels: ["Sales", "Rev.", "Profit"],
   datasets: [
     {
       label: "Transaction Dataset",
@@ -36,7 +36,7 @@ export const doughnutChartData2 = {
   ],
 };
 export const doughnutChartData3 = {
-  labels: ["Sales", "Revenue", "Profit"],
+  labels: ["Sales", "Rev.", "Profit"],
   datasets: [
     {
       label: "Transaction Dataset",
@@ -47,7 +47,7 @@ export const doughnutChartData3 = {
   ],
 };
 export const doughnutChartData4 = {
-  labels: ["Sales", "Revenue", "Profit"],
+  labels: ["Sales", "Rev.", "Profit"],
   datasets: [
     {
       label: "Transaction Dataset",

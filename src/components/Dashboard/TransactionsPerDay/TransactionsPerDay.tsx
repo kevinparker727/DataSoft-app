@@ -19,7 +19,7 @@ const TransactionsPerDay = () => {
     <Grid container gap={2} className={scss.wrapper}>
       <Paper className={scss.transactions}>
         <div className={scss.chart}>
-          <Typography>TransActions Per Day</Typography>
+          <Typography>Transactions Per Day</Typography>
           <DataChart type={"line"} data={lineChartData} />
         </div>
         <div className={scss.cardWrapper}>
