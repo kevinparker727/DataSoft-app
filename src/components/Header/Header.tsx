@@ -13,7 +13,7 @@ import AdbIcon from "@mui/icons-material/Adb";
 import { signOut, signIn, useSession } from "next-auth/react";
 import ThemeToggleButton from "../ThemeToggleButton";
 import { useMediaQuery } from "@mui/material";
-import { useTheme } from "@emotion/react";
+import { useTheme } from "@mui/system";
 import NextLink from "next/link";
 
 export type HeaderProps = {
