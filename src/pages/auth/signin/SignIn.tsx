@@ -41,6 +41,7 @@ const SignIn = () => {
                     <NextLink
                       className={scss.link}
                       href={`/dashboard/${menuRouteList[index]}`}
+                      passHref
                     >
                       <ListItemButton
                         onClick={() => handleListItemButtonClick(text)}
