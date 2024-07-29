@@ -37,6 +37,12 @@ export const authOptions: NextAuthOptions = {
       return token;
     },
   },
+  pages: {
+    signIn: "/auth/signin",
+    signOut: "/auth/signout",
+    error: "/auth/error",
+    verifyRequest: "/auth/verify-request",
+  },
   // Enable debug messages in the console if having problems
   debug: process.env.NODE_ENV === "development",
 };
