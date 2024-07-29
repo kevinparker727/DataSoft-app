@@ -17,7 +17,9 @@ const SignIn = () => {
   const { data: session } = useSession();
 
   const handleListItemButtonClick = (text: string) => {
-    text === "Sign Out" ? signOut() : null;
+    text === "Sign Out"
+      ? signOut()
+      : console.log("Thanks for checking out my app!");
   };
 
   return (
@@ -33,7 +35,7 @@ const SignIn = () => {
       <h2>
         {session ? (
           <div>
-            <div>Thank you loggin in.</div>
+            <div>Thank you logging in.</div>
             <div>
               <List>
                 {menuListTranslations.map((text, index) => (
