@@ -1,23 +1,20 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-import dotenv from "dotenv";
-
-dotenv.config();
 
 export const authOptions: NextAuthOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_ID as string,
       clientSecret: process.env.GOOGLE_SECRET as string,
-      authorization: {
-        params: {
-          prompt: "consent",
-          access_type: "offline",
-          response_type: "code",
-        },
-      },
     }),
   ],
+  pages: {
+    signIn: "/auth/signin",
+    signOut: "/auth/signout",
+    error: "/auth/error",
+    verifyRequest: "/auth/verify-request",
+  },
+  debug: process.env.NODE_ENV === "development",
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
       console.log("Sign-in attempt:", {
@@ -38,9 +35,6 @@ export const authOptions: NextAuthOptions = {
       return token;
     },
   },
-  debug: true,
-
-  secret: process.env.NEXTAUTH_SECRET,
 };
 
 export default NextAuth(authOptions);
