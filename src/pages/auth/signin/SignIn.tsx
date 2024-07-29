@@ -33,7 +33,7 @@ const SignIn = () => {
       <h2>
         {session ? (
           <div>
-            <div>Thank you logging in.</div>
+            <div>Thank you signing in.</div>
             <div>
               <List>
                 {menuListTranslations.map((text, index) => (

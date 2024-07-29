@@ -19,6 +19,26 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
+  callbacks: {
+    async session({ session, token, user }) {
+      console.log("Session callback:", { session, token, user });
+      // Add user id to the session
+      if (session.user) {
+        session.user.name = user.id;
+      }
+      return session;
+    },
+    async jwt({ token, user, account, profile }) {
+      console.log("JWT callback:", { token, user, account, profile });
+      // Add user id to the token
+      if (user) {
+        token.uid = user.id;
+      }
+      return token;
+    },
+  },
+  // Enable debug messages in the console if having problems
+  debug: process.env.NODE_ENV === "development",
 };
 
 export default NextAuth(authOptions);

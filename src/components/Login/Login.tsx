@@ -1,7 +1,5 @@
 import Button from "@mui/material/Button";
-import { log } from "console";
 import { useSession, signIn, signOut } from "next-auth/react";
-import Link from "next/link";
 
 const Login = () => {
   const { data: session } = useSession();
