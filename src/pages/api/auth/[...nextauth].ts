@@ -18,28 +18,29 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   ],
-  secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
+    async signIn({ user, account, profile, email, credentials }) {
+      console.log("Sign-in attempt:", {
+        user,
+        account,
+        profile,
+        email,
+        credentials,
+      });
+      return true;
+    },
     async session({ session, token, user }) {
       console.log("Session callback:", { session, token, user });
-      // Add user id to the session
-      if (session.user) {
-        session.user.name = user.id;
-      }
       return session;
     },
     async jwt({ token, user, account, profile }) {
       console.log("JWT callback:", { token, user, account, profile });
-      // Add user id to the token
-      if (user) {
-        token.uid = user.id;
-      }
       return token;
     },
   },
+  debug: true,
 
-  // Enable debug messages in the console if having problems
-  debug: process.env.NODE_ENV === "development",
+  secret: process.env.NEXTAUTH_SECRET,
 };
 
 export default NextAuth(authOptions);

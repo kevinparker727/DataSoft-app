@@ -6,6 +6,14 @@ dotenv.config({ path: join(process.cwd(), "env.local") });
 
 const nextConfig = {
   reactStrictMode: true,
+  async rewrites() {
+    return [
+      {
+        source: "/api/auth/:path*",
+        destination: "/api/auth/:path*",
+      },
+    ];
+  },
   env: {
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
     GOOGLE_ID: process.env.GOOGLE_ID,

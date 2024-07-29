@@ -1,4 +1,4 @@
-import Dashboard from "@/pages/dashboard";
+import Dashboard from "@/pages/dashboard/Dashboard";
 import Login from "@/components/Login";
 import { useSession } from "next-auth/react";
 import scss from "../components/Layout/Layout.module.scss";

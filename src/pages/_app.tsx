@@ -5,11 +5,21 @@ import darkTheme from "@/theme/darkTheme";
 import lightTheme from "@/theme/lightTheme";
 import type { AppProps } from "next/app";
 import { Session } from "next-auth";
+import { ErrorBoundary } from "react-error-boundary";
 
 import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
 
 import { SessionProvider } from "next-auth/react";
 import React from "react";
+
+interface ErrorFallbackProps {
+  error: Error;
+}
+
+const ErrorFallback: React.FC<ErrorFallbackProps> = ({ error }) => {
+  console.error("Error:", error);
+  return <div>An error occurred: {error.message}</div>;
+};
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -33,6 +43,10 @@ const App = ({
     }),
     []
   );
+
+  <ErrorBoundary FallbackComponent={ErrorFallback}>
+    <Component {...pageProps} />
+  </ErrorBoundary>;
 
   const darkThemeChosen = React.useMemo(
     () =>
