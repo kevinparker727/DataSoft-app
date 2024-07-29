@@ -8,7 +8,3 @@ export default withAuth({
     verifyRequest: "/auth/verify-request", // (used for check email message)
   },
 });
-
-export const config = {
-  matcher: ["/((?!auth|api/auth|public).*)"],
-};
