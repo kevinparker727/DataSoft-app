@@ -17,9 +17,7 @@ const SignIn = () => {
   const { data: session } = useSession();
 
   const handleListItemButtonClick = (text: string) => {
-    text === "Sign Out"
-      ? signOut()
-      : console.log("Thanks for checking out my app!");
+    text === "Sign Out" ? signOut() : null;
   };
 
   return (
