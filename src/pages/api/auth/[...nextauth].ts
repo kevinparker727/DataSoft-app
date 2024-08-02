@@ -1,5 +1,6 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
+import handler from "../hello";
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -44,4 +45,4 @@ export const authOptions: NextAuthOptions = {
   // },
 };
 
-export default NextAuth(authOptions);
+export { handler as GET, handler as POST };
