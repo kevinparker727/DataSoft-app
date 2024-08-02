@@ -1,6 +1,8 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-import handler from "../hello";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -16,33 +18,7 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   ],
-  pages: {
-    signIn: "/auth/signin",
-    signOut: "/auth/signout",
-    error: "/auth/error",
-    verifyRequest: "/auth/verify-request",
-  },
-  // debug: process.env.NODE_ENV === "development",
-  // callbacks: {
-  //   async signIn({ user, account, profile, email, credentials }) {
-  //     console.log("Sign-in attempt:", {
-  //       user,
-  //       account,
-  //       profile,
-  //       email,
-  //       credentials,
-  //     });
-  //     return true;
-  //   },
-  //   async session({ session, token, user }) {
-  //     console.log("Session callback:", { session, token, user });
-  //     return session;
-  //   },
-  //   async jwt({ token, user, account, profile }) {
-  //     console.log("JWT callback:", { token, user, account, profile });
-  //     return token;
-  //   },
-  // },
+  secret: process.env.NEXTAUTH_SECRET,
 };
 
-export { handler as GET, handler as POST };
+export default NextAuth(authOptions);

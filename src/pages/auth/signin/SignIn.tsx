@@ -12,11 +12,14 @@ import { signOut } from "next-auth/react";
 
 const menuRouteList = ["", "data", "profile", "settings"];
 const menuListTranslations = ["Home", "Data", "Profile", "Settings"];
+
 const SignIn = () => {
   const { data: session } = useSession();
+
   const handleListItemButtonClick = (text: string) => {
     text === "Sign Out" ? signOut() : null;
   };
+
   return (
     <Box
       sx={{
@@ -30,7 +33,7 @@ const SignIn = () => {
       <h2>
         {session ? (
           <div>
-            <div>Thank you signing in.</div>
+            <div>Thank you loggin in.</div>
             <div>
               <List>
                 {menuListTranslations.map((text, index) => (
@@ -38,7 +41,6 @@ const SignIn = () => {
                     <NextLink
                       className={scss.link}
                       href={`/dashboard/${menuRouteList[index]}`}
-                      passHref
                     >
                       <ListItemButton
                         onClick={() => handleListItemButtonClick(text)}
@@ -65,4 +67,5 @@ const SignIn = () => {
     </Box>
   );
 };
+
 export default SignIn;
