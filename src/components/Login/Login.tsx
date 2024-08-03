@@ -16,14 +16,7 @@ const Login = () => {
   }
   return (
     <>
-      <Button
-        variant="contained"
-        color={"success"}
-        onClick={() => {
-          console.log("sign in function called");
-          setTimeout(signIn, 3000);
-        }}
-      >
+      <Button variant="contained" color={"success"} onClick={() => signIn()}>
         Sign in
       </Button>
     </>
