@@ -11,6 +11,18 @@ const nextConfig = {
     GOOGLE_ID: process.env.GOOGLE_ID,
     GOOGLE_SECRET: process.env.GOOGLE_SECRET,
   },
+  // async rewrites() {
+  //   return [
+  //     {
+  //       source: `/api/:path*`,
+  //       destination: `/api/:path*`,
+  //     },
+  //     {
+  //       source: `/:path*`,
+  //       destination: `${PLATFORM_URL}/:path*`,
+  //     },
+  //   ];
+  // },
 };
 
 export default nextConfig;

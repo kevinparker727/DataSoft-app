@@ -8,7 +8,7 @@ import { useSession } from "next-auth/react";
 import NextLink from "next/link";
 import React from "react";
 import scss from "./SignIn.module.scss";
-import { signOut } from "next-auth/react";
+// import { signOut } from "next-auth/react";
 
 const menuRouteList = ["", "data", "profile", "settings"];
 const menuListTranslations = ["Home", "Data", "Profile", "Settings"];
@@ -17,7 +17,7 @@ const SignIn = () => {
   const { data: session } = useSession();
 
   const handleListItemButtonClick = (text: string) => {
-    text === "Sign Out" ? signOut() : null;
+    null;
   };
 
   return (
@@ -33,7 +33,7 @@ const SignIn = () => {
       <h2>
         {session ? (
           <div>
-            <div>Thank you loggin in.</div>
+            <div>Thank you signing in.</div>
             <div>
               <List>
                 {menuListTranslations.map((text, index) => (

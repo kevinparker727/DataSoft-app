@@ -1,5 +1,4 @@
 import Button from "@mui/material/Button";
-import { log } from "console";
 import { useSession, signIn, signOut } from "next-auth/react";
 
 const Login = () => {
@@ -16,8 +15,15 @@ const Login = () => {
   }
   return (
     <>
-      <Button variant="contained" color={"success"} onClick={() => signIn()}>
-        Sign in
+      <Button
+        variant="contained"
+        color={"success"}
+        onClick={() => {
+          console.log("Login clicked");
+          signIn();
+        }}
+      >
+        Login
       </Button>
     </>
   );
